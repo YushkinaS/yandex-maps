@@ -4,7 +4,7 @@ work with yandex maps
 ##Функция, которая отправляет яндексу адрес и возвращает координаты
 (с) https://wordpress.org/plugins/oi-yamaps/
 ```php
-function nalog_curl_get_contents($url)
+function curl_get_contents($url)
 {
   $curl = curl_init($url);
   curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
@@ -16,7 +16,7 @@ function nalog_curl_get_contents($url)
   return $data;
 }
 
-function nalog_coordinates( $address ) // get coordinates of a given address
+function coordinates( $address ) // get coordinates of a given address
 {
 	$address = urlencode( $address );
 	$url = "https://geocode-maps.yandex.ru/1.x/?geocode=" . $address;
@@ -25,7 +25,7 @@ function nalog_coordinates( $address ) // get coordinates of a given address
 	{
 		//if( _isCurl() )
 		//{
-			$content = nalog_curl_get_contents( $url ); // используем для получения данных curl
+			$content = curl_get_contents( $url ); // используем для получения данных curl
 		//}else
 		//{
 		//	return __('To show the map cURL must be enabled.', 'oiyamaps');
